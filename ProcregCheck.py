@@ -58,10 +58,10 @@ if __name__ == '__main__':
     if ProcKey32Exists() == False:
       print "The CLSID\1A5AC6AE-7B95-478C-B422-0E994FD727D6\InProcServer32 is not there"
     if ProcKey32Exists() == True:
-      print "The CLSID\1A5AC6AE-7B95-478C-B422-0E994FD727D6\InProcServer32 is not there"
+      print "The CLSID\1A5AC6AE-7B95-478C-B422-0E994FD727D6\InProcServer32 is there"
       GetProc32Value()
     if ProcKey64Exists() == False:
       print "The Software\Classes\Wow6432Node\CLSID\1A5AC6AE-7B95-478C-B422-0E994FD727D6\InProcServer32 is not there"
     if ProcKey64Exists() == True:
-      print "The Software\Classes\Wow6432Node\CLSID\1A5AC6AE-7B95-478C-B422-0E994FD727D6\InProcServer32 is not there"
+      print "The Software\Classes\Wow6432Node\CLSID\1A5AC6AE-7B95-478C-B422-0E994FD727D6\InProcServer32 is there"
       GetProc64Value()

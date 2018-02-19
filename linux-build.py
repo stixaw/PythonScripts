@@ -129,11 +129,13 @@ def P4vCheckout():
   LIN_OUTPUT = top + '/output_lin/...'
   LIN_TGZ = top + '/OEM/DS/Linux/x86/Base/ULMagent.tgz'
   LIN_PBS = top + '/PackageBuild/package.pbs'
+  LIN_ROLLOUT = top + '/OEM/DS/Linux/x86/automation/rollout-auto.sh'
  #check out files for modifying
   print "checking out",
   os.system("p4 edit %s" % (LIN_OUTPUT))
   os.system("p4 edit %s" % (LIN_TGZ))
   os.system("p4 edit %s" % (LIN_PBS))
+  os.system("p4 edit %s" % (LIN_ROLLOUT))
   
 def P4Submit():
   #function to submit the output_lin directory with a comment of Date and Time of check in
@@ -142,11 +144,13 @@ def P4Submit():
   LIN_OUTPUT = top + '/output_lin/...'
   LIN_TGZ = top + '/OEM/DS/Linux/x86/Base/ULMagent.tgz'
   LIN_PBS = top + '/PackageBuild/package.pbs'
+  LIN_ROLLOUT = top + '/OEM/DS/Linux/x86/automation/rollout-auto.sh'
   #submit changes
   print "Calling p4 -c %s submit -d '%s' %s and %s " % (workspace, localtime, LIN_OUTPUT, LIN_TGZ)
   os.system("p4 -c %s submit -d '%s' %s " % (workspace, localtime, LIN_OUTPUT))
   os.system("p4 -c %s submit -d '%s' %s " % (workspace, localtime, LIN_TGZ))
   os.system("p4 -c %s submit -d '%s' %s " % (workspace, localtime, LIN_PBS))
+  os.system("p4 -c %s submit -d '%s' %s " % (workspace, localtime, LIN_ROLLOUT))
   
   
 def CopyRename():
@@ -234,6 +238,7 @@ def CallTgzUpdate():
 def CallPBSUpdate():
   global top
   version = makeFullVersion()
+  #updates update OEM/DS/Linux/x86/automation/rollout-auto.sh as well
   pbsupdate = ('/build/scripts/updatepbs.sh ')
   os.system(top + pbsupdate + version)
   
