@@ -1,0 +1,4 @@
+  if OS_64 == True:
+    msiCommand = WISE + r' /c %s /p ProductVersion=' + version
+  else:
+    msiCommand = WISE_64 + r' /c %s /p ProductVersion=' + version

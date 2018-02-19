@@ -1,0 +1,71 @@
+HackerRank 8 dictionaries:
+
+import sys
+
+count = int(input().strip())
+contacts = {}
+
+for i in range(count):
+    name, num = input().strip().split(' ')
+    contacts[name]=num
+while(True):
+    try:
+        fname = input().strip()
+        if fname in contacts:
+            print('{}={}'.format(fname, contacts[fname]))
+        else:
+            print('Not found')
+    except EOFError:
+        break
+		
+Shorter code:
+n = int(input())
+name_numbers = [input().split() for _ in range(n)]
+phone_book = {k: v for k,v in name_numbers}
+while True:
+    try:
+        name = input()
+        if name in phone_book:
+            print('%s=%s' % (name, phone_book[name]))
+        else:
+            print('Not found')
+    except:
+        break
+		
+		
+n = int(input())
+dict = {}
+for i in range(n):
+    name,num= input().split()
+    dict[name] = num
+
+while True:
+    try:
+        search = input()
+        if search in dict:
+            print(search+'='+dict[search])
+        else:
+            print('Not found')
+    except:
+        break
+		
+		
+C#:
+class Solution {
+    static void Main(String[] args) {
+        int n = Convert.ToInt32(Console.ReadLine());
+        var d = new Dictionary<string, string>();
+        for(int i = 0; i < n; i++) {
+            var s = Console.ReadLine().Split(' ');
+            d.Add(s[0],s[1]);
+        }
+        for(int i = 0; i < n; i++) {
+            var s = Console.ReadLine();
+            if(d.ContainsKey(s)) {
+                Console.WriteLine(s + "=" + d[s]);
+            } else {
+                Console.WriteLine("Not found");
+            }
+        }
+    }
+        

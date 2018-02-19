@@ -1,0 +1,108 @@
+C#:
+static int[] Rotate(int[] a, int n) {
+    n %= a.Length;
+    var ret = new int[a.Length];
+    for(int i = 0; i < a.Length; ++i) {
+        ret[i] = a[(i + n) % a.Length];
+    }
+    return ret;
+}
+
+Python 3:
+
+def array_left_rotation(a, n, k):
+    alist = list(a)
+    b = alist[k:]+alist[:k]
+    return b
+
+def array_left_rotation(a, n, k):
+    return a[k:] + a[:k]
+	
+Deque:Python:
+def array_left_rotation(a, n, k):
+    a = deque(a)
+    for i in range(k):
+        a.rotate(-1)
+    return a
+
+Java:
+public static int[] arrayLeftRotation(int[] a, int n, int k) {
+        if (k >= n) {
+            k = k % n;
+        }
+        
+        if (k == 0) return a;
+        
+        int[] temp = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            if (i + k < n) {
+                temp[i] = a[i + k];
+            } else {
+                temp[i] = a[(i + k) - n];
+            }
+        }
+        
+        return temp;
+    }
+
+	No Python Tricks
+def array_left_rotation(array, array_length, shifts):  
+    """
+    This will store the values with their new positions.
+    """
+    result = [0] * array_length
+    
+    for i in range(array_length):
+      
+        """      
+        This will get the new location of the current   
+        value after the number of shifts are 		
+        applied.
+        
+        The modulus operator offers a neat way to ensure 
+        we are always inbounds of the array.
+        To learn more, research the 'circular array'.       
+        """
+        new_location = (i - shifts) % array_length 
+        
+        """       
+        Store the value in its new position
+        """
+        result[new_location] = array[i]
+        
+    return result
+	
+C#:
+public static int[] arrayLeftRotation(int[] a, int n, int k) {
+      int[] b = new int[n];
+        for(int i=0;i<n-k;i++){
+            b[i] = a[k+i];
+        }
+       int l = 0;
+        for(int i=n-k;i<n;i++){
+            b[i] = a[l++];
+        }
+       return b;        
+    }
+	
+My Solution:
+def arrayRotate( a, n, k):
+	str1 = ""
+	arr = [int(x) for x in str(a)]
+	print(arr)
+	if k > 0:
+		nlist = arr[k:]
+		nlist.extend (arr[:k])
+	elif d < 0:
+		nlist = arr[-k:]
+		nlist.extend (arr[:-k])
+	else:
+		nlist = arr
+	print(nlist)
+	for i in nlist:
+		if len(str1) == 0:
+			str1 += str(i)
+		else:
+			str1 += " " + str(i)
+	print( str1 )

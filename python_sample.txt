@@ -1,0 +1,22 @@
+import os
+import os.path
+import time
+
+# Build up a dictionary of timestamps
+
+content = {}
+for item in os.listdir('.'):
+   content[item] = os.path.getmtime(item)
+
+# Sort keys, based on time stamps
+
+items = content.keys()
+items.sort(lambda x,y: cmp(content[x],content[y]))
+
+# Report objects in order
+
+for item in items:
+   print "%15s %10d %s" % (
+        item,
+        content[item],
+        time.ctime(content[item]))
