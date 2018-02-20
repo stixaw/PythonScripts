@@ -65,4 +65,23 @@ if __name__ == '__main__':
 	print(m.group(), m.span())
 	print(m1)
 	
+	print("using ab*? repetition")
+	pat = re.compile(r'ab*?')
+	m= re.search(pat, text)
+	m1 = re.findall(pat, text)
+	print(m.group(), m.span())
+	print(m1)
 	
+	print("using ab+? repetition")
+	pat1 = re.compile(r'ab+?')
+	m = re.search(pat1,text)
+	m1 = re.findall(pat1,text)
+	print(m.group(), m.span())
+	print(m1)
+	
+	print("using ab?? repetition")
+	pat3 = re.compile(r'ab??')
+	m = re.search(pat3,text)
+	m1 = re.findall(pat3,text)
+	print(m.group(), m.span())
+	print(m1)
