@@ -10,7 +10,7 @@ if __name__ == '__main__':
 	text = "aaabbbbbaaabbbbababbababbbbabcad"
 	
 	# followed by zero or more bs
-	print("using ab* repitition")
+	print("using ab* repetition")
 	pat = re.compile(r'ab*')
 	m= re.search(pat, text)
 	m1 = re.findall(pat, text)
@@ -18,7 +18,7 @@ if __name__ == '__main__':
 	print(m1)
 	
 	# followed by one or more b
-	print("using ab+ repitition")
+	print("using ab+ repetition")
 	pat1 = re.compile(r'ab+')
 	m = re.search(pat1,text)
 	m1 = re.findall(pat1,text)
@@ -26,7 +26,7 @@ if __name__ == '__main__':
 	print(m1)
 	
 	# followed by zero or one b
-	print("using ab? repitition")
+	print("using ab? repetition")
 	pat3 = re.compile(r'ab?')
 	m = re.search(pat3,text)
 	m1 = re.findall(pat3,text)
@@ -34,7 +34,7 @@ if __name__ == '__main__':
 	print(m1)
 	
 	# followed by n bs
-	print("using ab{n} repitition")
+	print("using ab{2} repetition")
 	pat4 = re.compile(r'ab{2}')
 	m = re.search(pat4,text)
 	m1 = re.findall(pat4,text)
@@ -42,7 +42,7 @@ if __name__ == '__main__':
 	print(m1)
 	
 	# followed by min m and max n bs
-	print("using ab{m,n} repitition")
+	print("using ab{1,3} repetition")
 	pat5 = re.compile(r'ab{1,3}')
 	m = re.search(pat5,text)
 	m1 = re.findall(pat5,text)
@@ -50,7 +50,7 @@ if __name__ == '__main__':
 	print(m1)
 	
 	# followd by min m, unlimited b
-	print("using ab{m,} repitition")
+	print("using ab{1,} repetition")
 	pat6 = re.compile(r'ab{1,}')
 	m = re.search(pat6,text)
 	m1 = re.findall(pat6,text)
@@ -58,7 +58,7 @@ if __name__ == '__main__':
 	print(m1)
 	
 	# followed by a single non newline character
-	print("using ab. repitition")
+	print("using ab. repetition")
 	pat7 = re.compile(r'ab.')
 	m = re.search(pat7, text)
 	m1 = re.findall(pat7, text)
