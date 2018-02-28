@@ -1,4 +1,5 @@
 import numpy as np
+import random as rd
 import re
 import os
 import sys
@@ -186,6 +187,7 @@ def moreLists():
 	print A
 	B= [x*i for x in ('x',' y', 'z') for i in range(1,5)]
 	print B
+
 #Solution 16
 '''Write Dictionary comprehensions to produce the following Dictionaries
 {1: 1, 2: 8, 3: 27, 4: 64, 5: 125, 6: 216, 7: 343, 8: 512, 9: 729}
@@ -196,6 +198,84 @@ def makeDicts():
 	str = "abcdef"
 	B = {x: x*(str.index(x)+1) for x in str}
 	print B
+	
+#Solution 17
+'''Write a function longestWord() that takes a list of words and returns the longest one.'''
+def longWord(words):
+	maxCount = 0
+	longWord =""
+	for x in words:
+		if len(x) > maxCount:
+			maxCount = len(x)
+			longWord = x
+	print(longWord, maxCount)
+	
+# Solution 18
+'''A palindrome is a word, phrase, number, or other sequence of characters which reads the
+same backward or forward. Allowances may be made for adjustments to capital letters,
+punctuation, and word dividers.'''
+def isPalindrome(str):
+	str1 = str.lower()
+	str1 = str1.replace(" ", '')
+	str2 = str1[::-1]
+	if str1== str2:
+		print "%s is a Palindrome" % (str)
+	else:
+		print "%s is not a Palindrome"% (str)
+		
+#Solution 19
+'''A pangram is a sentence that contains all the letters of the English alphabetat least once.
+example: "The quick brown fox jumps over the lazy dog".
+Write a function to check if a sentence is a pangram or not'''
+def isPangram(str):
+	letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+	str1 = str.replace(" ", '').lower()
+	lettersDict = { l:0 for l in letters }
+	
+	for l in str1:
+		lettersDict[l] += 1
+	
+	for k in lettersDict:
+		if lettersDict[k] == 0:
+			print "'%s' is not a panagram"%(str)
+			print lettersDict
+			return
+	print "'%s' is a panagram"%(str)
+
+# Solution 20
+'''Write a function charFreq() that takes a string and creates a frequency listing of the characters
+contained in it using a dictionary object.
+charFreq("abcabcxyzxyzkkkmmmnnnsssqqqqkkaabbcc")'''
+def frequencyOfLetters(str):
+	str1 = str.lower()
+	dict = { c:0 for c in str1 }
+	for c in str1:
+		dict[c] += 1
+	print dict
+	
+# solution 21
+'''Using random module, generate 10,000 numbers between 1 and 5. Find the number for which
+largest numbers generated. Also create a dictionary with key-values where value > 2000, using
+dictionary comprehensions.
+import random
+Use the method: random.randint(1, 5)'''
+def generateNumbers():
+	nums = {x:0 for x in range(1,6)}
+	
+	for x in range(10000):
+		num = rd.randint(1,5)
+		nums[num] += 1
+	print nums
+	
+	max = 0;
+	mkey = 0;
+	
+	for k,v in nums.items():
+		if v > max:
+			max = v
+			mkey = k
+	print "Maximum Generated Number: {%s}-{%s} times"%(mkey, max)
+
 
 
 if __name__ == '__main__':
@@ -226,4 +306,14 @@ if __name__ == '__main__':
 	#print myFilter(lambda x: x>2, A)
 	#makeLists()
 	#moreLists()
-	makeDicts()
+	#makeDicts()
+	words = ["Apple", "Apricot", "Asparagus", "Avovado"]
+	#longWord(words)
+	#isPalindrome("noon")
+	#isPalindrome("team")
+	#isPalindrome("stack cats")
+	#isPangram("around the rugged rock the ragged rascal ran")
+	#isPangram("The quick brown fox jumps over the lazy dog")
+	#frequencyOfLetters("abcabcxyzxyzkkkmmmnnnsssqqqqkkaabbcc")
+	generateNumbers()
+	
