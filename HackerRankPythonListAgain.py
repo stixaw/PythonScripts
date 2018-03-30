@@ -60,7 +60,7 @@ def commandMe(N):
                 cmd += params
                 eval("list."+cmd)
             else:
-                print(list)
+                print list
 
 
 if __name__ == '__main__':
