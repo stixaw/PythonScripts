@@ -25,53 +25,7 @@ def array_left_rotation(a, n, k):
         a.rotate(-1)
     return a
 
-Java:
-public static int[] arrayLeftRotation(int[] a, int n, int k) {
-        if (k >= n) {
-            k = k % n;
-        }
-        
-        if (k == 0) return a;
-        
-        int[] temp = new int[n];
-        
-        for (int i = 0; i < n; i++) {
-            if (i + k < n) {
-                temp[i] = a[i + k];
-            } else {
-                temp[i] = a[(i + k) - n];
-            }
-        }
-        
-        return temp;
-    }
 
-	No Python Tricks
-def array_left_rotation(array, array_length, shifts):  
-    """
-    This will store the values with their new positions.
-    """
-    result = [0] * array_length
-    
-    for i in range(array_length):
-      
-        """      
-        This will get the new location of the current   
-        value after the number of shifts are 		
-        applied.
-        
-        The modulus operator offers a neat way to ensure 
-        we are always inbounds of the array.
-        To learn more, research the 'circular array'.       
-        """
-        new_location = (i - shifts) % array_length 
-        
-        """       
-        Store the value in its new position
-        """
-        result[new_location] = array[i]
-        
-    return result
 	
 C#:
 public static int[] arrayLeftRotation(int[] a, int n, int k) {

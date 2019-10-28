@@ -2,7 +2,7 @@
 #THE 3 YEAR OLD
 
 print "welcome to the 3 year old simulator, designed to drive you crazy"
-print " the program will continue to pester till your respond wiht the appropriate response"
+print " the program will continue to pester till your respond with the appropriate response"
 
 print "just try to stop the madness.\n"
 
